@@ -33,7 +33,7 @@ const SignUp = ({navigation}) => {
   const [busy, setBusy] = React.useState(false);
 
   async function authenticateUser() {
-    setBusy(true);
+    //setBusy(true);
     const {name, email, password} = values;
     try {
       await firebase.register(name, email, password);
@@ -43,7 +43,7 @@ const SignUp = ({navigation}) => {
       console.error('Authentication Error', err);
       //toast(err.message);
     }
-    setBusy(false);
+    // setBusy(false);
   }
 
   const updateSecureTextEntry = () => {

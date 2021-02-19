@@ -7,7 +7,6 @@ import {
   Text,
   StatusBar,
   Button,
-  TextInput,
   TouchableOpacity,
   Image,
   FlatList,
@@ -17,8 +16,9 @@ import {
 import firebase from '../firebase';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
-import {Modal, Portal, Provider} from 'react-native-paper';
-import searchImage from '../assets/images/Search_PNG.png';
+import {Modal, Portal, Provider, TextInput} from 'react-native-paper';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
 export default function CommunityHome({navigation}) {
   const [visible, setVisible] = React.useState(false);
 
@@ -32,28 +32,38 @@ export default function CommunityHome({navigation}) {
           visible={visible}
           onDismiss={hideModal}
           contentContainerStyle={containerStyle}>
-          <Text>Don't be weird.</Text>
+          <Text>Be a good leader.</Text>
         </Modal>
       </Portal>
+      <TouchableOpacity
+        style={styles.backbutton}
+        onPress={() => {
+          navigation.push('community Home');
+        }}>
+        <AntDesign
+          name="caretleft"
+          color="white"
+          style={{textAlign: 'center', marginTop: 10}}
+          size={24}
+        />
+      </TouchableOpacity>
       <View style={styles.container}>
-        <Image source={searchImage} style={styles.image} />
-        <Text style={styles.title}>Join a Community</Text>
-
-        <Text onPress={showModal} style={styles.smallOrange}>
-          Community Guideline
-        </Text>
+        <Text style={styles.title}>Create a Community</Text>
 
         <Text style={styles.small}>
-          Hey! Looks like you havent joined a community yet. You could create
-          your own or find one nearby.
+          Finding a Community near you must be tough, doesn’t hurt to start one
+          for your Neighbourhood
         </Text>
-        <TouchableOpacity
-          style={styles.appButtonContainer}
-          onPress={() => navigation.push('community Create')}>
-          <Text style={styles.appButtonText}>Browse</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.textButtonContainer}>
-          <Text style={styles.textButtonText}>Create a Community</Text>
+        <Image
+          source={require('../assets/images/people_PNG.png')}
+          style={styles.image}
+        />
+        <Text onPress={showModal} style={styles.smallOrange}>
+          Responsibilities of a Community leader.
+        </Text>
+        <TextInput label="Community Name" style={{width: '100%'}} mode="flat" />
+        <TouchableOpacity style={styles.appButtonContainer}>
+          <Text style={styles.appButtonText}>Next</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -64,6 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     margin: 25,
+    marginTop: 0,
   },
   image: {
     width: 160,
@@ -91,6 +102,13 @@ const styles = StyleSheet.create({
     marginTop: 0,
     padding: 5,
   },
+  backbutton: {
+    backgroundColor: '#F85F6A',
+    width: 44,
+    height: 44,
+    borderRadius: 44 / 2,
+    margin: 10,
+  },
   smallOrange: {
     fontFamily: 'Asap',
     fontStyle: 'normal',
@@ -106,7 +124,7 @@ const styles = StyleSheet.create({
   appButtonContainer: {
     elevation: 8,
     backgroundColor: '#F85F6A',
-
+    marginTop: 100,
     paddingVertical: 20,
     paddingHorizontal: 100,
     marginBottom: 10,
