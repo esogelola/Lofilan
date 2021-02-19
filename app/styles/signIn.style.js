@@ -10,7 +10,6 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
-    paddingBottom: 50,
   },
   footer: {
     flex: 3,
@@ -22,7 +21,14 @@ export default StyleSheet.create({
     paddingTop: 10,
     color: '#000000',
     fontWeight: 'bold',
-    fontSize: theme.FONT_SIZE_HEADER,
+    fontSize: theme.FONT_SIZE_MEDIUM,
+    textAlign: 'center',
+  },
+  text_sub_header: {
+    paddingTop: 20,
+    color: '#000000',
+    fontWeight: 'bold',
+    fontSize: 30,
   },
   text_footer: {
     color: '#F85F6A',
@@ -59,7 +65,7 @@ export default StyleSheet.create({
   },
   signIn: {
     width: '100%',
-    height: 70,
+    height: 52,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,

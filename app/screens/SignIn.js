@@ -20,6 +20,9 @@ const SignIn = ({navigation}) => {
     validateLogin,
     authenticateUser,
   );
+  const [data, setData] = React.useState({
+    secureTextEntry: true,
+  });
   const [busy, setBusy] = React.useState(false);
 
   async function authenticateUser() {
@@ -28,12 +31,18 @@ const SignIn = ({navigation}) => {
     try {
       await firebase.login(email, password);
       console.log('You have logged in successfully!');
-      navigation.push('/');
     } catch (err) {
       console.log('Authentication Error', err);
     }
     setBusy(false);
   }
+  const updateSecureTextEntry = () => {
+    setData({
+      ...data,
+      secureTextEntry: !data.secureTextEntry,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -51,6 +60,7 @@ const SignIn = ({navigation}) => {
             autoCapitalize="none"
             fieldName="email"
             onChangeText={(text) => handleChange({name: 'email', value: text})}
+            value={values.email}
             required
           />
         </View>
@@ -62,14 +72,15 @@ const SignIn = ({navigation}) => {
             placeholder="Enter your password"
             style={styles.textInput}
             autoCapitalize="none"
-            secureTextEntry={true}
+            secureTextEntry={data.secureTextEntry ? true : false}
             onChangeText={(text) =>
               handleChange({name: 'password', value: text})
             }
+            value={values.password}
             required
           />
-          <TouchableOpacity>
-            {true ? (
+          <TouchableOpacity onPress={updateSecureTextEntry}>
+            {data.secureTextEntry ? (
               <Feather name="eye-off" color="grey" size={20} />
             ) : (
               <Feather name="eye" color="grey" size={20} />

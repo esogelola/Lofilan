@@ -56,7 +56,6 @@ const SignUp = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={{fontWeight: 'bold', textAlign: 'center'}}>Lofilan</Text>
-        <Text />
         <Text style={styles.text_header}>Sign Up</Text>
         <Text style={{color: '#989EB1', fontSize: 15}}>
           Lets get you connected!
@@ -208,7 +207,7 @@ const styles = StyleSheet.create({
   },
   signIn: {
     width: '100%',
-    height: 70,
+    height: 53,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,

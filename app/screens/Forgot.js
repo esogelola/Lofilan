@@ -33,7 +33,7 @@ const Forgot = ({navigation}) => {
       await firebase.resetPassword(email);
       //toast('Password Rest Email has been sent.');
       console.log('Password Rest Email has been sent.');
-      navigation.history.push('/login');
+      navigation.push('SignIn');
     } catch (err) {
       console.error('Password Reset Error', err);
       //toast(err.message);
