@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "172651702828",
+    "project_id": "lofilan-a4077",
+    "storage_bucket": "lofilan-a4077.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172651702828:android:7334e359877ad6c57bbf89",
+        "android_client_info": {
+          "package_name": "com.lofilan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172651702828-k170dr62m91a27e10oechvj0tellcd0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lofilan",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "172651702828-sfjlf3ite0ddp56cqje7jjopanui1kd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASTnIixJszvAfRNyCtkrstXwG6jcbEJLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172651702828-sfjlf3ite0ddp56cqje7jjopanui1kd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
