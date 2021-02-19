@@ -15,35 +15,64 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from './components/SplashScreen';
 import HomeScreen from './pages/Home';
 import SignInScreen from './pages/SignIn';
-const isLoading = false;
-const userToken = null;
+import SignUpScreen from './pages/SignUp';
+import ForgotScreen from './pages/Forgot';
+
+import useAuth from './hooks/useAuth';
+import UserContext from './contexts/UserContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  if (isLoading) {
+  const [isInitializing, user, setUser] = useAuth();
+
+  if (isInitializing) {
     return <SplashScreen />;
   }
   return (
-    <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          {userToken == null ? (
-            <Stack.Screen
-              name="SignIn"
-              component={SignInScreen}
-              options={{
-                headerShown: false,
-                // When logging out, a pop animation feels intuitive
-                // You can remove this if you want the default 'push' animation
-                animationTypeForReplace: false ? 'pop' : 'push',
-              }}
-            />
-          ) : (
-            <Stack.Screen name="Home" component={HomeScreen} />
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+    <UserContext.Provider value={{isInitializing, user, setUser}}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            {user == null ? (
+              <>
+                <Stack.Screen
+                  name="SignIn"
+                  component={SignInScreen}
+                  options={{
+                    headerShown: false,
+                    // When logging out, a pop animation feels intuitive
+                    // You can remove this if you want the default 'push' animation
+                    animationTypeForReplace: false ? 'pop' : 'push',
+                  }}
+                />
+                <Stack.Screen
+                  name="SignUp"
+                  component={SignUpScreen}
+                  options={{
+                    headerShown: false,
+                    // When logging out, a pop animation feels intuitive
+                    // You can remove this if you want the default 'push' animation
+                    animationTypeForReplace: false ? 'pop' : 'push',
+                  }}
+                />
+                <Stack.Screen
+                  name="Forgot"
+                  component={ForgotScreen}
+                  options={{
+                    headerShown: false,
+                    // When logging out, a pop animation feels intuitive
+                    // You can remove this if you want the default 'push' animation
+                    animationTypeForReplace: false ? 'pop' : 'push',
+                  }}
+                />
+              </>
+            ) : (
+              <Stack.Screen name="Home" component={HomeScreen} />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </UserContext.Provider>
   );
 }
