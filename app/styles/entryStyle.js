@@ -1,5 +1,5 @@
 import {StyleSheet, Platform} from 'react-native';
-import theme from '../styles/theme.style';
+import theme from './theme.style';
 
 export default StyleSheet.create({
   container: {
@@ -58,21 +58,6 @@ export default StyleSheet.create({
     color: '#FF0000',
     fontSize: theme.FONT_SIZE_MEDIUM,
   },
-  button: {
-    alignItems: 'center',
-    marginTop: 50,
-    marginBottom: 30,
-  },
-  signIn: {
-    width: '100%',
-    height: 52,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  textSign: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+
   lead: {color: '#989EB1', fontSize: 16},
 });
