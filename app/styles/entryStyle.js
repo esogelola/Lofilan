@@ -1,5 +1,5 @@
 import {StyleSheet, Platform} from 'react-native';
-import theme from '../styles/theme.style';
+import theme from './theme.style';
 
 export default StyleSheet.create({
   container: {
@@ -14,18 +14,18 @@ export default StyleSheet.create({
   footer: {
     flex: 3,
     backgroundColor: '#fff',
-    paddingHorizontal: 20,
-    paddingVertical: 30,
+    marginHorizontal: 20,
+    marginVertical: 30,
   },
   text_header: {
-    paddingTop: 10,
+    marginTop: 10,
     color: '#000000',
     fontWeight: 'bold',
     fontSize: theme.FONT_SIZE_MEDIUM,
     textAlign: 'center',
   },
   text_sub_header: {
-    paddingTop: 20,
+    marginTop: 20,
     color: '#000000',
     fontWeight: 'bold',
     fontSize: 30,
@@ -39,40 +39,62 @@ export default StyleSheet.create({
     marginTop: 10,
     borderBottomWidth: 2,
     borderBottomColor: '#000000',
-    paddingBottom: 5,
+    marginBottom: 5,
   },
   actionError: {
     flexDirection: 'row',
     marginTop: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#FF0000',
-    paddingBottom: 5,
+    marginBottom: 5,
   },
   textInput: {
     flex: 1,
     marginTop: Platform.OS === 'ios' ? 0 : -12,
-    paddingLeft: 10,
+    marginLeft: 10,
     color: '#05375a',
   },
   errorMsg: {
     color: '#FF0000',
     fontSize: theme.FONT_SIZE_MEDIUM,
   },
-  button: {
+  backbutton: {
+    backgroundColor: '#F85F6A',
+    width: 44,
+    height: 44,
+    borderRadius: 44 / 2,
+  },
+  lead: {color: '#989EB1', fontSize: 16},
+  primary: {
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: '#F85F6A',
+  },
+  secondary: {
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: '#989EB1',
+  },
+  btn: {
     alignItems: 'center',
-    marginTop: 50,
     marginBottom: 30,
   },
-  signIn: {
+  btnGradient: {
     width: '100%',
     height: 52,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
   },
-  textSign: {
+  text: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#ffff',
   },
-  lead: {color: '#989EB1', fontSize: 16},
+  backButton: {
+    backgroundColor: '#F85F6A',
+    width: 44,
+    height: 44,
+    borderRadius: 44 / 2,
+  },
 });

@@ -6,6 +6,7 @@ const mainTheme = {
     ...DefaultTheme.colors,
     primary: 'tomato',
     accent: 'yellow',
+    background: 'white',
   },
 };
 

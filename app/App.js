@@ -14,7 +14,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SplashScreen from './components/SplashScreen';
-import CommunityHome from './screens/CommunityHome';
+import CommunityStackScreen from './components/stacks/CommunityStackScreen';
 import MarketplaceHome from './screens/MarketplaceHome';
 import Messages from './screens/Messages';
 import Settings from './screens/Settings';
@@ -72,7 +72,10 @@ export default function App() {
             </Stack.Navigator>
           ) : (
             <Drawer.Navigator initialRouteName="Home">
-              <Drawer.Screen name="Community" component={CommunityHome} />
+              <Drawer.Screen
+                name="Community"
+                component={CommunityStackScreen}
+              />
               <Drawer.Screen name="Marketplace" component={MarketplaceHome} />
               <Drawer.Screen name="Messages" component={Messages} />
               <Drawer.Screen name="Settings" component={Settings} />

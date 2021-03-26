@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/signIn.style';
+import {View, Text} from 'react-native';
+import styles from '../styles/entryStyle.js';
 import * as Animatable from 'react-native-animatable';
-import Feather from 'react-native-vector-icons/Feather';
-import LinearGradient from 'react-native-linear-gradient';
 
 import useFormValidation from '../hooks/useFormValidation';
 import validateLogin from '../components/auth/validateLogin';
 import firebase from '../firebase';
+
+import TextButton from '../components/elements/TextButton';
+import Button from '../components/elements/Button';
+import SecuredTextInput from '../components/elements/SecuredTextInput';
+import TextInput from '../components/elements/TextInput';
+import EntryHeader from '../components/elements/EntryHeader';
 
 const INITIAL_STATE = {
   email: '',
@@ -20,9 +24,7 @@ const SignIn = ({navigation}) => {
     validateLogin,
     authenticateUser,
   );
-  const [data, setData] = React.useState({
-    secureTextEntry: true,
-  });
+
   const [busy, setBusy] = React.useState(false);
 
   async function authenticateUser() {
@@ -36,88 +38,54 @@ const SignIn = ({navigation}) => {
     }
     setBusy(false);
   }
-  const updateSecureTextEntry = () => {
-    setData({
-      ...data,
-      secureTextEntry: !data.secureTextEntry,
-    });
-  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Lofilan</Text>
-        <Text style={styles.text_sub_header}>Sign In</Text>
-        <Text style={styles.lead}>Hi there! Nice to see you.</Text>
-      </View>
+      <EntryHeader
+        headerText={'Lofilan'}
+        subHeaderText={'Sign In'}
+        leadText={'Hi there! Nice to see you again.'}
+      />
 
       <Animatable.View animation="fadeInDown" style={styles.footer}>
         <Text style={styles.text_footer}>Email</Text>
-        <View style={styles.action}>
-          <TextInput
-            placeholder="Enter your email"
-            style={styles.textInput}
-            autoCapitalize="none"
-            fieldName="email"
-            onChangeText={(text) => handleChange({name: 'email', value: text})}
-            value={values.email}
-            required
-          />
-        </View>
-
+        <TextInput
+          placeholder="Enter your email"
+          autoCapitalize="none"
+          fieldName="email"
+          onChangeText={(text) => handleChange({name: 'email', value: text})}
+          values={values.email}
+          required={true}
+        />
         <Text style={[styles.text_footer, {marginTop: 30}]}>Password</Text>
-        <View style={styles.action}>
-          <TextInput
-            type="password"
-            placeholder="Enter your password"
-            style={styles.textInput}
-            autoCapitalize="none"
-            secureTextEntry={data.secureTextEntry ? true : false}
-            onChangeText={(text) =>
-              handleChange({name: 'password', value: text})
-            }
-            value={values.password}
-            required
-          />
-          <TouchableOpacity onPress={updateSecureTextEntry}>
-            {data.secureTextEntry ? (
-              <Feather name="eye-off" color="grey" size={20} />
-            ) : (
-              <Feather name="eye" color="grey" size={20} />
-            )}
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          title="Sign In"
+        <SecuredTextInput
+          values={values}
+          type={'password'}
+          placeholder={'Enter your password'}
+          onChangeText={(text) => handleChange({name: 'password', value: text})}
+          required={true}
+        />
+        <Button
+          text="Sign In"
           onPress={handleSubmit}
-          disabled={isSubmitting}>
-          <Animatable.View animation="pulse" delay={700} style={styles.button}>
-            <LinearGradient
-              colors={['#F85F6A', '#F85F6A']}
-              style={styles.signIn}>
-              <Text style={[styles.textSign, {color: '#ffff'}]}>Sign In</Text>
-            </LinearGradient>
-          </Animatable.View>
-        </TouchableOpacity>
+          disabled={isSubmitting}
+          anim={{animation: 'pulse', delay: 700}}
+          style={{marginTop: 50}}
+          gradient={['#F85F6A', '#F85F6A']}
+        />
+
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity
+          <TextButton
             style={{flex: 1}}
-            onPress={() => navigation.push('Forgot')}>
-            <Text
-              style={{fontWeight: 'bold', textAlign: 'left', color: '#989EB1'}}>
-              Forgot Password?
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.push('SignUp')}>
-            <Text
-              style={{
-                fontWeight: 'bold',
-                textAlign: 'left',
-                color: '#F85F6A',
-              }}>
-              Sign Up
-            </Text>
-          </TouchableOpacity>
+            text={'Forgot Password'}
+            onPress={() => navigation.push('Forgot')}
+            type={'secondary'}
+          />
+          <TextButton
+            text={'Sign Up'}
+            onPress={() => navigation.push('SignUp')}
+            type={'primary'}
+          />
         </View>
       </Animatable.View>
     </View>
