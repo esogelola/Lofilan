@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import styles from '../../styles/entryStyle';
 
 export default function Button({navigation, text, type, onPress, style}) {
   return (
@@ -10,16 +11,3 @@ export default function Button({navigation, text, type, onPress, style}) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  primary: {
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#F85F6A',
-  },
-  secondary: {
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#989EB1',
-  },
-});

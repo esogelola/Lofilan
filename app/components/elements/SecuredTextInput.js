@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, TextInput, StyleSheet} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import styles from '../../styles/entryStyle';
 
 export default function SecuredTextInput({
   navigation,
@@ -8,6 +9,7 @@ export default function SecuredTextInput({
   onChangeText,
   type,
   placeholder,
+  name,
 }) {
   const [data, setData] = React.useState({
     secureTextEntry: true,
@@ -27,7 +29,7 @@ export default function SecuredTextInput({
         autoCapitalize="none"
         secureTextEntry={data.secureTextEntry ? true : false}
         onChangeText={onChangeText}
-        value={values.password}
+        value={values[name]}
         required
       />
       <TouchableOpacity onPress={updateSecureTextEntry}>
@@ -40,26 +42,3 @@ export default function SecuredTextInput({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  textInput: {
-    flex: 1,
-    marginTop: Platform.OS === 'ios' ? 0 : -12,
-    paddingLeft: 10,
-    color: '#05375a',
-  },
-  action: {
-    flexDirection: 'row',
-    marginTop: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: '#000000',
-    paddingBottom: 5,
-  },
-  actionError: {
-    flexDirection: 'row',
-    marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#FF0000',
-    paddingBottom: 5,
-  },
-});

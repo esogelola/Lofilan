@@ -14,7 +14,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SplashScreen from './components/SplashScreen';
-import CommunityStackScreen from './components/CommunityStackScreen';
+import CommunityStackScreen from './components/stacks/CommunityStackScreen';
 import MarketplaceHome from './screens/MarketplaceHome';
 import Messages from './screens/Messages';
 import Settings from './screens/Settings';

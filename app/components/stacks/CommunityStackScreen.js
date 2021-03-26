@@ -1,12 +1,12 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import CommunityHome from '../screens/CommunityHome';
-import CommunityCreate from '../screens/CommunityCreate';
+import CommunityHome from '../../screens/Community/Community_Home';
+import CommunityCreateStackScreen from '../stacks/CommunityCreateStackScreen';
 const CommunityStack = createStackNavigator();
 const CommunityStackScreen = () => (
   <CommunityStack.Navigator>
     <CommunityStack.Screen
-      name="community Home"
+      name="Community Home"
       component={CommunityHome}
       options={{
         headerShown: false,
@@ -15,8 +15,8 @@ const CommunityStackScreen = () => (
       }}
     />
     <CommunityStack.Screen
-      name="community Create"
-      component={CommunityCreate}
+      name="Community Create"
+      component={CommunityCreateStackScreen}
       options={{
         headerShown: false,
 

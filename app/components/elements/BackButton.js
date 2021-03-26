@@ -1,23 +1,16 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '../../styles/entryStyle';
+import styles from '../../styles/communityStyle';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-export default function EntryHeader({
-  navigation,
-  headerText,
-  subHeaderText,
-  leadText,
-  hasBackButton,
-}) {
+export default function BackButton({navigation, hasBackButton, style}) {
   return (
-    <View style={styles.header}>
-      <Text style={styles.text_header}>{headerText}</Text>
+    <View style={style}>
       {hasBackButton && (
         <TouchableOpacity
           style={styles.backbutton}
           onPress={() => {
-            navigation.push('SignIn');
+            navigation.goBack();
           }}>
           <AntDesign
             name="caretleft"
@@ -27,9 +20,6 @@ export default function EntryHeader({
           />
         </TouchableOpacity>
       )}
-
-      <Text style={styles.text_sub_header}>{subHeaderText}</Text>
-      <Text style={styles.lead}>{leadText}</Text>
     </View>
   );
 }

@@ -70,6 +70,7 @@ const SignIn = ({navigation}) => {
           onPress={handleSubmit}
           disabled={isSubmitting}
           anim={{animation: 'pulse', delay: 700}}
+          style={{marginTop: 50}}
           gradient={['#F85F6A', '#F85F6A']}
         />
 
