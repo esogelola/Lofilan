@@ -34,7 +34,7 @@ const Messages = [
     userImg: require('../assets/users/user-2.jpg'),
     messageTime: '2 hours ago',
     messageText:
-      'Doing goood',
+      'Hey',
   },
   {
     id: '3',
@@ -42,15 +42,16 @@ const Messages = [
     userImg: require('../assets/users/user-3.jpg'),
     messageTime: '3 hours ago',
     messageText:
-      'Nice to hear that, dog',
+      'Hey',
   },
  
 ];
 
 const MessagesScreen = ({navigation}) => {
     return (
-
-      <Container>
+      
+      <Container >
+         
         <FlatList 
        
           data={Messages}
@@ -83,6 +84,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     alignItems: 'center', 
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: '100%'
+
   },
 });
