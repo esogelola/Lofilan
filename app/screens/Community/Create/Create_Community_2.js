@@ -6,12 +6,13 @@ import {
   Text,
   TouchableOpacity,
   Image,
+  Platform,
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
 import {Divider} from 'react-native-paper';
 
-import MapView from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
 import Header from '../../../components/elements/MainHeader';
 import styles from '../../../styles/communityStyle';
@@ -46,7 +47,17 @@ export default function CreateCommunity1({navigation, route}) {
           <Text style={[styles.lead, styles.textCenter]}>
             Where is your community located at, and how big is the radius?
           </Text>
-          <MapView />
+          <View style={[styles.map, styles.container]}>
+            <MapView
+              provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+              style={styles.map}
+              region={{
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.0121,
+              }}></MapView>
+          </View>
           <Button
             text="Next"
             style={[styles.btn, styles.mb1, styles.mbt0]}

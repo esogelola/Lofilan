@@ -19,6 +19,7 @@
     "@react-native-firebase/auth": "^10.8.0",
     "@react-native-firebase/firestore": "^10.8.0",
     "@react-native-firebase/storage": "^10.8.0",
+    "@react-navigation/bottom-tabs": "^5.11.9",
     "@react-navigation/drawer": "^5.12.3",
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
@@ -28,13 +29,15 @@
     "react-native-calendars": "^1.1249.0",
     "react-native-elements": "^3.2.0",
     "react-native-gesture-handler": "^1.10.1",
+    "react-native-gifted-chat": "^0.16.3",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-maps": "0.27.1",
     "react-native-paper": "^4.7.1",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.17.1",
-    "react-native-vector-icons": "^8.0.0"
+    "react-native-vector-icons": "^8.0.0",
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

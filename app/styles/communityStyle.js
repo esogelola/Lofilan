@@ -81,4 +81,14 @@ export default StyleSheet.create({
     height: 44,
     borderRadius: 44 / 2,
   },
+  mapContainer: {
+    ...StyleSheet.absoluteFillObject,
+    height: 400,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
 });
