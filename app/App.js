@@ -90,67 +90,65 @@ export default function App() {
               />
             </Stack.Navigator>
           ) : (
-            
-            <Tab.Navigator  tabBarOptions={{
-              showLabel: false,
-              activeTintColor: '#F85F6A',
-              inactiveTintColor: '#989EB1',
-              activeBackgroundColor:'#f0f6f7'
-            }}>
+            <Tab.Navigator
+              tabBarOptions={{
+                showLabel: false,
+                activeTintColor: '#F85F6A',
+                inactiveTintColor: '#989EB1',
+                activeBackgroundColor: '#f0f6f7',
+              }}>
               <Tab.Screen
                 name="Community"
                 component={CommunityStackScreen}
                 options={{
-                tabBarLabel: 'Community',
-                  tabBarIcon: (props) =>  
-                  
+                  tabBarLabel: 'Community',
+                  tabBarIcon: (props) => (
                     <MaterialCommunityIcons
                       name="account-group"
                       color={props.color}
                       size={50}
-                    />,
+                    />
+                  ),
                 }}
               />
-              <Tab.Screen 
-              name="Marketplace" 
-              component={MarketplaceHome}
-              options={{
-                tabBarLabel: 'Marketplace',
-                  tabBarIcon: (props) =>  
-                  
+              <Tab.Screen
+                name="Marketplace"
+                component={MarketplaceHome}
+                options={{
+                  tabBarLabel: 'Marketplace',
+                  tabBarIcon: (props) => (
                     <MaterialCommunityIcons
                       name="shopping"
                       color={props.color}
                       size={50}
-                    />,
+                    />
+                  ),
                 }}
-               />
-              <Tab.Screen name="Messages"
-               component={MessageStack} 
-               options={{
-                tabBarLabel: 'Messages',
-                  tabBarIcon: (props) =>  
-                  
-                    <Ionicons
-                      name="mail"
-                      color={props.color}
-                      size={50}
-                    />,
+              />
+              <Tab.Screen
+                name="Messages"
+                component={MessageStack}
+                options={{
+                  tabBarLabel: 'Messages',
+                  tabBarIcon: (props) => (
+                    <Ionicons name="mail" color={props.color} size={50} />
+                  ),
                 }}
-               />
-              <Tab.Screen 
-              name="Profile"
-              component={Settings}
-               options={{
-                tabBarLabel: 'Profile',
-                  tabBarIcon: (props) =>  
-                  
+              />
+              <Tab.Screen
+                name="Profile"
+                component={Settings}
+                options={{
+                  tabBarLabel: 'Profile',
+                  tabBarIcon: (props) => (
                     <MaterialCommunityIcons
                       name="account"
                       color={props.color}
                       size={50}
-                    />,
-                }} />
+                    />
+                  ),
+                }}
+              />
             </Tab.Navigator>
           )}
         </NavigationContainer>

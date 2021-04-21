@@ -1,16 +1,16 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {View,
+import {
+  View,
   Text,
   Image,
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  SafeAreaView,} from 'react-native';
+  SafeAreaView} from 'react-native';
 import firebase from '../firebase';
 import UserContext from '../contexts/UserContext';
 
 const Settings = ({navigation, route}) => {
-
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleted, setDeleted] = useState(false);
@@ -26,7 +26,7 @@ const Settings = ({navigation, route}) => {
         .orderBy('postTime', 'desc')
         .get()
         .then((querySnapshot) => {
-        
+
 
           querySnapshot.forEach((doc) => {
             const {
@@ -64,13 +64,6 @@ const Settings = ({navigation, route}) => {
     }
   };
 
-
-
-
-
-
-
-
   async function logoutUser() {
     try {
       await firebase.logout();
@@ -81,7 +74,7 @@ const Settings = ({navigation, route}) => {
     }
   }
   return (
-  <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
@@ -90,10 +83,15 @@ const Settings = ({navigation, route}) => {
           style={styles.userImg}
           source={require('../assets/users/user-1.jpg')}
         />
-        <Text style={styles.userName}>{userData ? userData.fname || 'Test' : 'Yevhenii'} {userData ? userData.lname || 'Name' : 'Zalizniak'}</Text>
+        <Text style={styles.userName}>
+          {userData ? userData.fname || 'Test' : 'Yevhenii'}{' '}
+          {userData ? userData.lname || 'Name' : 'Zalizniak'}
+        </Text>
         {/* <Text>{route.params ? route.params.userId : user.uid}</Text> */}
         <Text style={styles.aboutUser}>
-        {userData ? userData.about || 'No details added.' : 'Developing myself and this app)'}
+          {userData
+            ? userData.about || 'No details added.'
+            : 'Developing myself and this app)'}
         </Text>
         <View style={styles.userBtnWrapper}>
           {route.params ? (
@@ -107,25 +105,26 @@ const Settings = ({navigation, route}) => {
             </>
           ) : (
             <>
-            <View style={styles.userBtnWrapper}>
-              <TouchableOpacity
-                style={[styles.userBtn, {backgroundColor:'#989EB1'}]}
-                onPress={() => {
-                  
-                }}>
-                <Text style={[styles.userBtnTxt, {backgroundColor:'#989EB1'}]}>Edit</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-               style={styles.userBtn} onPress={() => logoutUser()}>
-                <Text style={styles.userBtnTxt}>Logout</Text>
-              </TouchableOpacity>
+              <View style={styles.userBtnWrapper}>
+                <TouchableOpacity
+                  style={[styles.userBtn, {backgroundColor: '#989EB1'}]}
+                  onPress={() => {}}>
+
+                    style={[styles.userBtnTxt, {backgroundColor: '#989EB1'}]}>
+                    Edit
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.userBtn}
+                  onPress={() => logoutUser()}>
+                  <Text style={styles.userBtnTxt}>Logout</Text>
+                </TouchableOpacity>
               </View>
             </>
           )}
         </View>
 
         <View style={styles.userInfoWrapper}>
-         
           <View style={styles.userInfoItem}>
             <Text style={styles.userInfoTitle}>0</Text>
             <Text style={styles.userInfoSubTitle}>Communities</Text>
@@ -134,7 +133,6 @@ const Settings = ({navigation, route}) => {
             <Text style={styles.userInfoTitle}>2</Text>
             <Text style={styles.userInfoSubTitle}>Followers</Text>
           </View>
-          
         </View>
 
         {posts.map((item) => (
@@ -145,7 +143,7 @@ const Settings = ({navigation, route}) => {
   );
 };
 
-export default  Settings;
+export default Settings;
 
 const styles = StyleSheet.create({
   container: {

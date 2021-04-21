@@ -21,6 +21,7 @@ import Button from '../../../components/elements/Button';
 import TextInput from '../../../components/elements/TextInput';
 export default function CreateCommunity1({navigation, route}) {
   const {params} = route;
+  console.log(params);
   return (
     <SafeAreaView>
       <ScrollView>
@@ -56,7 +57,8 @@ export default function CreateCommunity1({navigation, route}) {
                 longitude: -122.4324,
                 latitudeDelta: 0.015,
                 longitudeDelta: 0.0121,
-              }}></MapView>
+              }}
+            />
           </View>
           <Button
             text="Next"

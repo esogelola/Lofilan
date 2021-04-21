@@ -9,7 +9,6 @@ const ChatScreen = () => {
 
   useEffect(() => {
     setMessages([
-     
       {
         _id: 2,
         text: 'Hey2',
@@ -71,18 +70,16 @@ const ChatScreen = () => {
             color: '#ffff',
           },
           left: {
-            color: '#000000'
-          }
+            color: '#000000',
+          },
         }}
       />
     );
   };
 
   const scrollToBottomComponent = () => {
-    return(
-      <FontAwesome name='angle-double-down' size={22} color='#333' />
-    );
-  }
+    return <FontAwesome name="angle-double-down" size={22} color="#333" />;
+  };
 
   return (
     <GiftedChat

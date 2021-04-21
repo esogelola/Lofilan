@@ -1,6 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import CommunityHome from '../../screens/Community/Community_Home';
+import CommunityList from '../../screens/Community/Community_List';
+
 import CommunityCreateStackScreen from '../stacks/CommunityCreateStackScreen';
 const CommunityStack = createStackNavigator();
 const CommunityStackScreen = () => (
@@ -8,6 +10,15 @@ const CommunityStackScreen = () => (
     <CommunityStack.Screen
       name="Community Home"
       component={CommunityHome}
+      options={{
+        headerShown: false,
+
+        animationTypeForReplace: false ? 'pop' : 'push',
+      }}
+    />
+    <CommunityStack.Screen
+      name="Community List"
+      component={CommunityList}
       options={{
         headerShown: false,
 

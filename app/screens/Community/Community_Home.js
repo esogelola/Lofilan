@@ -49,6 +49,9 @@ export default function CommunityHome({navigation}) {
             style={[styles.btn, styles.mb1]}
             anim={{animation: 'pulse', delay: 700}}
             gradient={['#F85F6A', '#F85F6A']}
+            onPress={() => {
+              navigation.push('Community List');
+            }}
           />
           <TextButton
             navigation={navigation}

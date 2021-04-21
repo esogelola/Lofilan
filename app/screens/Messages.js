@@ -11,7 +11,7 @@ export default function Messages({navigation}) {
   );
 }*/
 import React from 'react';
-import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
+import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
 import {
   Container,
   Card,
@@ -25,64 +25,60 @@ import {
   TextSection,
 } from '../styles/MessageStyles';
 import Header from '../components/elements/MainHeader';
-import { ScrollView } from 'react-native';
+import {ScrollView} from 'react-native';
 const Messages = [
-
   {
     id: '2',
     userName: 'Alisher Urazbayev',
     userImg: require('../assets/users/user-2.jpg'),
     messageTime: '2 hours ago',
-    messageText:
-      'Doing goood',
+    messageText: 'Doing goood',
   },
   {
     id: '3',
     userName: 'Emmanuel Sogelola',
     userImg: require('../assets/users/user-3.jpg'),
     messageTime: '3 hours ago',
-    messageText:
-      'Nice to hear that, dog',
+    messageText: 'Nice to hear that, dog',
   },
- 
 ];
 
 const MessagesScreen = ({navigation}) => {
-    return (
-
-      <Container>
-        <FlatList 
-       
-          data={Messages}
-          keyExtractor={item=>item.id}
-          renderItem={({item}) => (
-            <Card onPress={() => navigation.navigate('Chat', {userName: item.userName})}>
-              <UserInfo>
-                <UserImgWrapper>
-                  <UserImg source={item.userImg} />
-                </UserImgWrapper>
-                <TextSection>
-                  <UserInfoText>
-                    <UserName>{item.userName}</UserName>
-                    <PostTime>{item.messageTime}</PostTime>
-                  </UserInfoText>
-                  <MessageText>{item.messageText}</MessageText>
-                </TextSection>
-              </UserInfo>
-            </Card>
-          )}
-        />
-      </Container>
-      
-    );
+  return (
+    <Container>
+      <FlatList
+        data={Messages}
+        keyExtractor={(item) => item.id}
+        renderItem={({item}) => (
+          <Card
+            onPress={() =>
+              navigation.navigate('Chat', {userName: item.userName})
+            }>
+            <UserInfo>
+              <UserImgWrapper>
+                <UserImg source={item.userImg} />
+              </UserImgWrapper>
+              <TextSection>
+                <UserInfoText>
+                  <UserName>{item.userName}</UserName>
+                  <PostTime>{item.messageTime}</PostTime>
+                </UserInfoText>
+                <MessageText>{item.messageText}</MessageText>
+              </TextSection>
+            </UserInfo>
+          </Card>
+        )}
+      />
+    </Container>
+  );
 };
 
 export default MessagesScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
